@@ -14,6 +14,7 @@ class CustomCrew:
     def __init__(self, var1, var2):
         self.var1 = var1
         self.var2 = var2
+        self.var3 = var3
 
     def run(self):
         # Define your custom agents and tasks in agents.py and tasks.py
@@ -21,20 +22,27 @@ class CustomCrew:
         tasks = ExampleTasks()
 
         # Define your custom agents and tasks here
-        example_agent = agents.example_agent()
+        extractor_agent = agents.extractor_agent()
+        connector_agent = agents.connector_agent()
 
         # Custom tasks include agent name and variables as input
-        example_task = tasks.example_task(
-            example_agent,
+        extraction_task = tasks.extraction_task(
+            extractor_agent,
             self.var1,
             self.var2,
+        )
+
+        connecting_task = tasks.connecting_task(
+            connector_agent,
+            self.var1,
+            self.var3
         )
 
 
         # Define your custom crew here
         crew = Crew(
-            agents=[example_agent],
-            tasks=[example_task],
+            agents=[extractor_agent, connector_agent],
+            tasks=[extraction_task, connecting_task],
             verbose=True,
         )
 
@@ -48,8 +56,9 @@ if __name__ == "__main__":
     print("-------------------------------")
     var1 = input(dedent("""Text to be extracted: """))
     var2 = input(dedent("""Properties to be extracted: """))
+    var3 = input(dedent("""Relationships to be extracted: """))
 
-    custom_crew = CustomCrew(var1, var2)
+    custom_crew = CustomCrew(var1, var2, var3)
     result = custom_crew.run()
     print("\n\n########################")
     print("## Here is you custom crew run result:")
