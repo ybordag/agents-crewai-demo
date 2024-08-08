@@ -9,7 +9,7 @@ from langchain_openai import ChatOpenAI
 # You can also define custom tasks in tasks.py
 class ExampleAgents:
     def __init__(self):
-        self.ollama = Ollama(model="llama3")
+        self.ollama = Ollama(model="llama3.1")
 
     def extractor_agent(self):
         return Agent(
@@ -45,6 +45,8 @@ class ExampleAgents:
                         * **Is able to extract entities with relevant attributes and behaviors**: 
                         Retrieves not only the basic information about an entity but also its 
                         associated characteristics, relationships, and properties.
+                        ***IT IS MOST IMPORTANT TO BE AS THOROUGH AS POSSIBLE. MAKE SURE TO FIND
+                        EVERY ENTITY***
                         """
                     ),
             goal=dedent(f"""you extract entities from text and return each one as a JSON object"""),
@@ -83,6 +85,8 @@ class ExampleAgents:
                         *  **Returns each connection as a JSON object**: Provides explicit 
                         connections as structured data, enabling easy integration with downstream 
                         applications or further analysis.
+                        ***IT IS MOST IMPORTANT TO BE AS CLEAR AS POSSIBLE. MAKE SURE TO FIND
+                        THE BEST DESCRIPTION FOR EACH RELATIONSHIP AND ADD DETAILS AS NEEDED***
                         """
                     ),
             goal=dedent(f"""you connect entities from text and return each connection as a JSON object"""),

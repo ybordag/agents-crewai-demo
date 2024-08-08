@@ -36,13 +36,13 @@ class ExampleTasks:
                         f"""***Output Format***: 
                         Return output in well formatted JSON
 
-                        **Input 1:**
+                        **Example Input 1:**
                         ```
                         Text: "John Smith, CEO of XYZ Corporation, met with Jane Doe, a prominent 
                         investor."
                         ```
 
-                        **Output 1:**
+                        **Example Output 1:**
                         ```
                         [
                             {{
@@ -58,13 +58,13 @@ class ExampleTasks:
                         ]
                         ```
 
-                        **Input 2:**
+                        **Example Input 2:**
                         ```
                         Text: "The report highlights the importance of data security and mentions 
                         recent breaches at Apple and Facebook."
                         ```
 
-                        **Output 2:**
+                        **Example Output 2:**
                         ```
                         [
                             {{
@@ -78,7 +78,7 @@ class ExampleTasks:
                         ]
                         ```
 
-                        **Input 3:**
+                        **Example Input 3:**
                         ```
                         Text: "Recent studies have shown that the development of artificial 
                         intelligence (AI) has significant implications for the field of psychology. 
@@ -91,7 +91,7 @@ class ExampleTasks:
                         role of human judgment and bias in decision-making processes."
                         ```
 
-                        **Output 3:**
+                        **Example Output 3:**
                         ```
                         [
                             {{
@@ -129,7 +129,7 @@ class ExampleTasks:
                         ]
                         ```
 
-
+                        *DO NOT INCLUDE EXAMPLES IN YOUR RESPONSE*
                         """
                     )
                 )
@@ -149,6 +149,8 @@ class ExampleTasks:
                         3. If user-specified relationships are provided, prioritize identifying 
                         connections that match those relationships to provide a more comprehensive 
                         understanding.
+                        4. Copy the Entity List returned by the extraction agent
+                        5. RETURN BOTH THE ENTITY LIST AND RELATIONSHIPT LIST!!
                         
                         {self.__tip_section()}
                 
@@ -161,9 +163,10 @@ class ExampleTasks:
                 agent=agent,
                 expected_output=dedent(
                         f"""***Output Format***: 
-                        Return output in well formatted JSON
+                        Return BOTH THE ENTITY LIST AND RELATIONSHIPT LIST output in well formatted 
+                        JSON
 
-                        **Input 1:**
+                        **Example Input 1:**
                         ```
                         Text: "John Smith, CEO of XYZ Corporation, met with Jane Doe, a prominent 
                         investor."
@@ -187,7 +190,7 @@ class ExampleTasks:
                         ]
                         ```
 
-                        **Output 2:**
+                        **Example Output 1:**
                         ```
                         {{
                             "Entities": [
@@ -222,6 +225,7 @@ class ExampleTasks:
                         }}
                         ```
 
+                        **Example Input 2:**
                         ```
                         Text: "Recent studies have shown that the development of artificial 
                         intelligence (AI) has significant implications for the field of psychology. 
@@ -270,7 +274,7 @@ class ExampleTasks:
                         ]
                         ```
 
-                        **Output 2:**
+                        **Example Output 2:**
                         ```
                         {{
                             "Entities": [
@@ -330,6 +334,8 @@ class ExampleTasks:
                             ]
                         }}
                         ```
+
+                        *DO NOT INCLUDE EXAMPLES IN YOUR RESPONSE*
                         """
                     )
                 )
